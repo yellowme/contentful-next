@@ -2,9 +2,14 @@ import { useEffect, useState } from 'react'
 import Head from 'next/head'
 import Post from '../components/post'
 
+const space = process.env.SPACE_ID
+const token = process.env.TOKEN
+
+console.log(space, token)
+
 const client = require('contentful').createClient({
-  space: process.env.CONTENTFUL_SPACE_ID,
-  accessToken: process.env.CONTENTFUL_ACCESS_TOKEN
+  space: process.env.SPACE_ID,
+  accessToken: process.env.TOKEN
 })
 
 function HomePage() {
@@ -16,11 +21,12 @@ function HomePage() {
 
   const [posts, setPosts] = useState([])
 
+  async function getPosts() {
+    const allPosts = await fetchEntries()
+    setPosts([...allPosts])
+  }
+
   useEffect(() => {
-    async function getPosts() {
-      const allPosts = await fetchEntries()
-      setPosts([...allPosts])
-    }
     getPosts()
   }, [])
 
@@ -40,7 +46,7 @@ function HomePage() {
               alt={p.fields.alt}
               date={p.fields.date}
               key={p.fields.title}
-              image={p.fields.image}
+              image={p.fields.img}
               title={p.fields.title}
               url={p.fields.url}
             />
