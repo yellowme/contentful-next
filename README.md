@@ -26,7 +26,7 @@ A simple Next.js site powered by Contentful and ready for deployment on Vercel
 
 1. Install dependencies via `npm`
 
-``` bash
+```console
 $ npm init -y
 $ npm i contentful next react react-dom vercel
 ```
@@ -40,17 +40,24 @@ TOKEN=your_contentful_api_access_token
 
 3. Run on `localhost`
 
-``` bash
+```console
 $ npm run build && npm run dev
 ```
 
 ## To deploy on Vercel
 
-[TBC]
-- Vercel configuration
-- Create Vercel secrets
-- Vercel deployment via Github
-- Vercel deployment via CLI
+1. Upload your API keys as specified on the `vercel.json` file but without using the `@` sign to Vercel's Secrets vault.
+
+```console
+$ vercel secrets add contentful_space_id your_contentful_space_id
+$ vercel secrets add contentful_access_token your_contentful_api_access_token
+```
+
+2. Deploy
+
+* Option 1: Deploy via Github: https://vercel.com/docs/v2/git-integrations
+* Option 2: Deploy with Vercel CLI: https://vercel.com/download
+
 
 
   
