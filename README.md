@@ -38,6 +38,12 @@ SPACE_ID=your_contentful_space_id
 TOKEN=your_contentful_api_access_token
 ```
 
+3. Run on `localhost`
+
+``` bash
+$ npm run build && npm run dev
+```
+
 ## To deploy on Vercel
 
 [TBC]
