@@ -2,15 +2,10 @@ import { useEffect, useState } from 'react'
 import Head from 'next/head'
 import Post from '../components/post'
 
-const space = process.env.SPACE_ID
-const token = process.env.TOKEN
-
-console.log(space, token)
-
 const client = require('contentful').createClient({
   space: process.env.SPACE_ID,
   accessToken: process.env.TOKEN
-})
+})  
 
 function HomePage() {
   async function fetchEntries() {
